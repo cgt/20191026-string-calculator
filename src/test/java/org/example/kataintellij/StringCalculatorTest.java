@@ -24,7 +24,6 @@ public class StringCalculatorTest {
     @Test
     public void given_two_numbers_separated_by_comma_return_their_sum() {
         assertEquals(2, add("1,1"));
-        assertEquals(1262, add("0,1262"));
     }
 
     @Test
