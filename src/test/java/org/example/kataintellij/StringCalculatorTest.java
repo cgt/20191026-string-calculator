@@ -63,6 +63,10 @@ public class StringCalculatorTest {
         });
     }
 
+    @Test
+    public void includes_negative_numbers_in_exception() {
+    }
+
     private int add(String s) {
         if (s.startsWith("//")) {
             final var delimiter = String.valueOf(s.charAt(2));
