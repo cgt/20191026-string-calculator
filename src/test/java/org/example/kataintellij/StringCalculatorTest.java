@@ -78,7 +78,7 @@ public class StringCalculatorTest {
         }
         final var i = parseInt(s);
         if (i < 0) {
-            throw new RuntimeException();
+            throw new RuntimeException("negatives not allowed");
         }
         return i;
     }
