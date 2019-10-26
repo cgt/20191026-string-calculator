@@ -91,7 +91,7 @@ public class StringCalculatorTest {
         if (s.startsWith("//[")) {
             final var startOfDelimiter = 3;
             final var endOfDelimiter = s.indexOf("]\n");
-            final var customDelimiter = s.substring(startOfDelimiter, endOfDelimiter);
+            final var customDelimiter = getCustomDelimiter(s);
             final var startOfNumbers = endOfDelimiter + 2;
             final var numbers = s.substring(startOfNumbers);
             final var numbersWithStandardDelimiter = numbers.replace(customDelimiter, STANDARD_DELIMITER);
@@ -126,6 +126,12 @@ public class StringCalculatorTest {
             .filter(i -> i <= 1000)
             .reduce(Integer::sum)
             .orElse(0);
+    }
+
+    private String getCustomDelimiter(String s) {
+        final var start = 3;
+        final var end = s.indexOf("]\n");
+        return s.substring(start, end);
     }
 
     private String trimCustomDelimiter(String s) {
