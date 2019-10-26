@@ -68,6 +68,11 @@ public class StringCalculatorTest {
         } catch (Exception e) {
             assertTrue(e.getMessage().contains("-1"));
         }
+        try {
+            add("-1,-2");
+        } catch (Exception e) {
+            assertTrue(e.getMessage().contains("-1") && e.getMessage().contains("-2"));
+        }
     }
 
     private int add(String s) {
@@ -87,7 +92,7 @@ public class StringCalculatorTest {
 
         final var negatives = integers.stream().filter((x) -> x < 0).collect(Collectors.toList());
         if (negatives.size() > 0) {
-            var message = "negatives not allowed: " + negatives.get(0);
+            var message = "negatives not allowed: " + String.join(", ", negatives.stream().map(String::valueOf).collect(Collectors.toList()));
             throw new RuntimeException(message);
         }
         return integers
