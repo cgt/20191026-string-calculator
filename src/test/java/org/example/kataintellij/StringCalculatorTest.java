@@ -81,39 +81,21 @@ public class StringCalculatorTest {
         if (s.equals("")) {
             return 0;
         }
-        if (s.contains(",") || s.contains("\n")) {
-            final var split = s.split("[,\n]");
+        final var split = s.split("[,\n]");
 
-            final var integers = Arrays
-                .stream(split)
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
+        final var integers = Arrays
+            .stream(split)
+            .map(Integer::parseInt)
+            .collect(Collectors.toList());
 
-            final var negatives = integers.stream().filter((x) -> x < 0).collect(Collectors.toList());
-            if (negatives.size() > 0) {
-                var message = "negatives not allowed: " + negatives.get(0);
-                throw new RuntimeException(message);
-            }
-            return integers.stream()
-                .reduce(Integer::sum)
-                .orElse(0);
-        } else {
-            final var split = s.split("[,\n]");
-
-            final var integers = Arrays
-                .stream(split)
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
-
-            final var negatives = integers.stream().filter((x) -> x < 0).collect(Collectors.toList());
-            if (negatives.size() > 0) {
-                var message = "negatives not allowed: " + negatives.get(0);
-                throw new RuntimeException(message);
-            }
-            return integers.stream()
-                .reduce(Integer::sum)
-                .orElse(0);
+        final var negatives = integers.stream().filter((x) -> x < 0).collect(Collectors.toList());
+        if (negatives.size() > 0) {
+            var message = "negatives not allowed: " + negatives.get(0);
+            throw new RuntimeException(message);
         }
+        return integers.stream()
+            .reduce(Integer::sum)
+            .orElse(0);
     }
 
     private String trimCustomDelimiter(String s) {
