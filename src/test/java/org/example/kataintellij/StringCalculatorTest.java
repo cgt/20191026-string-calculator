@@ -3,6 +3,8 @@ package org.example.kataintellij;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.lang.Integer.parseInt;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -63,9 +65,13 @@ public class StringCalculatorTest {
         }
         if (s.contains(",") || s.contains("\n")) {
             final var split = s.split("[,\n]");
-            return Arrays
+
+            final var integers = Arrays
                 .stream(split)
                 .map(Integer::parseInt)
+                .collect(Collectors.toList());
+
+            return integers.stream()
                 .reduce(Integer::sum)
                 .orElse(0);
         }
