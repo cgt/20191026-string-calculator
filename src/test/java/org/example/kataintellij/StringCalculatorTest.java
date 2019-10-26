@@ -86,8 +86,9 @@ public class StringCalculatorTest {
 
     private int add(String s) {
         if (s.startsWith("//[")) {
+            final var startOfDelimiter = 3;
             final var endOfDelimiter = s.indexOf("]\n");
-            final var delimiter = s.substring(3, endOfDelimiter);
+            final var delimiter = s.substring(startOfDelimiter, endOfDelimiter);
             final var s2 = s.substring(endOfDelimiter + 2).replace(delimiter, ",");
             return add(s2);
         }
