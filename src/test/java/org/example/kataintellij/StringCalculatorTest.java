@@ -48,7 +48,7 @@ public class StringCalculatorTest {
 
     private int add(String s) {
         if (s.startsWith("//")) {
-            s = s.substring(4);
+            return add(s.substring(4));
         }
         if (s.equals("")) {
             return 0;
