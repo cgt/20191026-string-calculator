@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 import static java.lang.Integer.parseInt;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StringCalculatorTest {
     @Test
@@ -46,7 +47,12 @@ public class StringCalculatorTest {
         assertEquals(3, add("//\n\n1\n2"));
         assertEquals(3, add("//;\n1;2"));
     }
-
+    @Test
+    public void does_not_support_negatives() {
+//        assertThrows(Exception.class, () -> {
+//            add("-1");
+//        });
+    }
     private int add(String s) {
         if (s.startsWith("//")) {
             final var delimiter = String.valueOf(s.charAt(2));
