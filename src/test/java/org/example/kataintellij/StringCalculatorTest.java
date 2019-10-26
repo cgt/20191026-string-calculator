@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StringCalculatorTest {
     @Test
-    public void empty_string_returns_zero() {
+    public void given_empty_string_returns_zero() {
         assertEquals(0, add(""));
     }
 
