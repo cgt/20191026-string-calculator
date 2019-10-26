@@ -20,11 +20,6 @@ public class StringCalculatorTest {
         assertEquals(2, add("2"));
     }
 
-    @Test
-    public void given_2_returns_2() {
-        assertEquals(2, add("2"));
-    }
-
     private int add(String s) {
         if (s.equals("")) {
             return 0;
