@@ -2,6 +2,8 @@ package org.example.kataintellij;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static java.lang.Integer.parseInt;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -24,13 +26,22 @@ public class StringCalculatorTest {
         assertEquals(1262, add("0,1262"));
     }
 
+    @Test
+    public void three_numbers() {
+        assertEquals(6, add("1,2,3"));
+    }
+
     private int add(String s) {
         if (s.equals("")) {
             return 0;
         }
         if (s.contains(",")) {
             final var split = s.split(",");
-            return add(split[0]) + add(split[1]);
+            return Arrays
+                .stream(split)
+                .map(Integer::parseInt)
+                .reduce(Integer::sum)
+                .orElse(0);
         }
         return parseInt(s);
     }
