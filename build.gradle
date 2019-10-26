@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter:5.5.2"
+}
+
+tasks.test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
