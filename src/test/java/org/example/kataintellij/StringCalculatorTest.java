@@ -29,7 +29,7 @@ public class StringCalculatorTest {
         }
         if (s.contains(",")) {
             final var split = s.split(",");
-            return parseInt(split[0]) + parseInt(split[1]);
+            return add(split[0]) + add(split[1]);
         }
         return parseInt(s);
     }
