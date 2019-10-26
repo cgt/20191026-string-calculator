@@ -64,6 +64,11 @@ public class StringCalculatorTest {
 
     @Test
     public void includes_negative_numbers_in_exception() {
+        try {
+            add("-1");
+        } catch (Exception e) {
+            assertTrue(e.getMessage().contains("-1"));
+        }
     }
 
     private int add(String s) {
@@ -86,7 +91,7 @@ public class StringCalculatorTest {
         }
         final var i = parseInt(s);
         if (i < 0) {
-            throw new RuntimeException("negatives not allowed");
+            throw new RuntimeException("negatives not allowed: " + i);
         }
         return i;
     }
