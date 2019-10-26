@@ -90,8 +90,8 @@ public class StringCalculatorTest {
             final var endOfDelimiter = s.indexOf("]\n");
             final var delimiter = s.substring(startOfDelimiter, endOfDelimiter);
             final var startOfNumbers = endOfDelimiter + 2;
-            final var s2 = s.substring(startOfNumbers).replace(delimiter, ",");
-            return add(s2);
+            final var numbers = s.substring(startOfNumbers).replace(delimiter, ",");
+            return add(numbers);
         }
         if (s.startsWith("//")) {
             final var delimiter = String.valueOf(s.charAt(2));
