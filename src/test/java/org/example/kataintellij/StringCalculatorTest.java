@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StringCalculatorTest {
+
     @Test
     public void given_empty_string_returns_zero() {
         assertEquals(0, add(""));
@@ -84,14 +85,17 @@ public class StringCalculatorTest {
         assertEquals(6, add("//[***]\n1***2***3"));
     }
 
+    public static final String STANDARD_DELIMITER = ",";
+
     private int add(String s) {
         if (s.startsWith("//[")) {
             final var startOfDelimiter = 3;
             final var endOfDelimiter = s.indexOf("]\n");
-            final var delimiter = s.substring(startOfDelimiter, endOfDelimiter);
+            final var customDelimiter = s.substring(startOfDelimiter, endOfDelimiter);
             final var startOfNumbers = endOfDelimiter + 2;
-            final var numbers = s.substring(startOfNumbers).replace(delimiter, ",");
-            return add(numbers);
+            final var numbers = s.substring(startOfNumbers);
+            final var numbersWithStandardDelimiter = numbers.replace(customDelimiter, STANDARD_DELIMITER);
+            return add(numbersWithStandardDelimiter);
         }
         if (s.startsWith("//")) {
             final var delimiter = String.valueOf(s.charAt(2));
