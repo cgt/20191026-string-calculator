@@ -81,7 +81,7 @@ public class StringCalculatorTest {
 
     @Test
     public void supports_multicharacter_delimiters() {
-        //assertEquals(6, add("//[***]\\n1***2***3"));
+//        assertEquals(6, add("//[***]\n1***2***3"));
     }
 
     private int add(String s) {
