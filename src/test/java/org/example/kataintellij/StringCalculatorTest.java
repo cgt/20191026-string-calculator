@@ -85,7 +85,6 @@ public class StringCalculatorTest {
             return Arrays
                 .stream(split)
                 .map(this::add)
-                .collect(Collectors.toList()).stream()
                 .reduce(Integer::sum)
                 .orElse(0);
         }
