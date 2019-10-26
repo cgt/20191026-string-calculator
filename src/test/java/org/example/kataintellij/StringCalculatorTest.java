@@ -18,10 +18,18 @@ public class StringCalculatorTest {
         assertEquals(2, add("2"));
         assertEquals(3, add("3"));
     }
+    @Test
+    public void given_two_numbers_separated_by_comma_return_their_sum() {
+        assertEquals(2, add("1,1"));
+    }
 
     private int add(String s) {
         if (s.equals("")) {
             return 0;
+        }
+        if (s.contains(",")) {
+            final var split = s.split(",");
+            return parseInt(split[0]) + parseInt(split[1]);
         }
         return parseInt(s);
     }
