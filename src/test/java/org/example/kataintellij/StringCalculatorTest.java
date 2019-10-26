@@ -2,6 +2,7 @@ package org.example.kataintellij;
 
 import org.junit.jupiter.api.Test;
 
+import static java.lang.Integer.parseInt;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StringCalculatorTest {
@@ -14,6 +15,7 @@ public class StringCalculatorTest {
     public void given_any_one_single_digit_returns_same_digit() {
         assertEquals(1, add("1"));
         assertEquals(2, add("2"));
+        assertEquals(3, add("3"));
     }
 
     private int add(String s) {
@@ -25,7 +27,7 @@ public class StringCalculatorTest {
         } else if (s.equals("2")) {
             return 2;
         }
-        return 0;
+        return parseInt(s);
     }
 
 }
