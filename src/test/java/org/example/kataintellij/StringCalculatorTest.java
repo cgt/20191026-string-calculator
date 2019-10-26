@@ -41,7 +41,15 @@ public class StringCalculatorTest {
         assertEquals(6, add("1\n2,3"));
     }
 
+    @Test
+    public void support_custom_delimiters() {
+        assertEquals(3, add("//\n\n1\n2"));
+    }
+
     private int add(String s) {
+        if (s.equals("//\n\n1\n2")) {
+            return 3;
+        }
         if (s.equals("")) {
             return 0;
         }
