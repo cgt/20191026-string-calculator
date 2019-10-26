@@ -25,6 +25,9 @@ public class StringCalculatorTest {
     }
 
     private int add(String s) {
+        if (s.equals("")) {
+            return 0;
+        }
         if (s.equals("1")) {
             return 1;
         } else if (s.equals("2")) {
