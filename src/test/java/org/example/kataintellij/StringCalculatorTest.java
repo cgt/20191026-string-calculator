@@ -79,6 +79,11 @@ public class StringCalculatorTest {
         assertEquals(2, add("2,1001"));
     }
 
+    @Test
+    public void supports_multicharacter_delimiters() {
+        //assertEquals(6, add("//[***]\\n1***2***3"));
+    }
+
     private int add(String s) {
         if (s.startsWith("//")) {
             final var delimiter = String.valueOf(s.charAt(2));
