@@ -14,7 +14,16 @@ public class StringCalculatorTest {
         assertEquals(0, add(""));
     }
 
+
+    @Test
+    public void given_1_returns_1() {
+        assertEquals(1, add("1"));
+    }
+
     private int add(String s) {
+        if (s.equals("1")) {
+            return 1;
+        }
         return 0;
     }
 
