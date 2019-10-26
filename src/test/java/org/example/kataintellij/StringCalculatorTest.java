@@ -51,9 +51,9 @@ public class StringCalculatorTest {
     }
     @Test
     public void does_not_support_negatives() {
-//        assertThrows(Exception.class, () -> {
-//            add("-1");
-//        });
+        assertThrows(Exception.class, () -> {
+            add("-1");
+        });
     }
     private int add(String s) {
         if (s.startsWith("//")) {
