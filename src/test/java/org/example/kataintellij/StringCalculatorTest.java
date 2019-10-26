@@ -74,6 +74,11 @@ public class StringCalculatorTest {
         }
     }
 
+    @Test
+    public void numbers_above_1000_are_not_included_in_sum() {
+        assertEquals(2, add("2,1001"));
+    }
+
     private int add(String s) {
         if (s.startsWith("//")) {
             final var delimiter = String.valueOf(s.charAt(2));
@@ -101,6 +106,7 @@ public class StringCalculatorTest {
         }
         return integers
             .stream()
+            .filter(i -> i <= 1000)
             .reduce(Integer::sum)
             .orElse(0);
     }
