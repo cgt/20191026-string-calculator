@@ -89,6 +89,7 @@ public class StringCalculatorTest {
             final var x = s.substring(3);
             final var end = x.indexOf("]\n");
             final var delimiter = x.substring(0, end);
+            final var withoutConfig = x.substring(end + 1);
             return 6;
         }
         if (s.startsWith("//")) {
