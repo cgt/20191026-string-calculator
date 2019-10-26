@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static java.lang.Integer.parseInt;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StringCalculatorTest {
     @Test
@@ -22,6 +22,7 @@ public class StringCalculatorTest {
         assertEquals(2, add("2"));
         assertEquals(3, add("3"));
     }
+
     @Test
     public void given_two_numbers_separated_by_comma_return_their_sum() {
         assertEquals(2, add("1,1"));
@@ -48,6 +49,7 @@ public class StringCalculatorTest {
         assertEquals(3, add("//\n\n1\n2"));
         assertEquals(3, add("//;\n1;2"));
     }
+
     @Test
     public void does_not_support_negatives() {
         try {
@@ -60,6 +62,7 @@ public class StringCalculatorTest {
             add("-1,-1");
         });
     }
+
     private int add(String s) {
         if (s.startsWith("//")) {
             final var delimiter = String.valueOf(s.charAt(2));
