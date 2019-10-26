@@ -86,6 +86,8 @@ public class StringCalculatorTest {
 
     private int add(String s) {
         if (s.equals("//[***]\n1***2***3")) {
+            final var x = s.substring(3);
+            final var end = s.indexOf("]\n");
             return 6;
         }
         if (s.startsWith("//")) {
