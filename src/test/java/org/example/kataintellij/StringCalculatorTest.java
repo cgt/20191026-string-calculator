@@ -36,6 +36,11 @@ public class StringCalculatorTest {
         assertEquals(2, add("1\n1"));
     }
 
+    @Test
+    public void allow_mixing_separators() {
+        assertEquals(6, add("1\n2,3"));
+    }
+
     private int add(String s) {
         if (s.equals("")) {
             return 0;
