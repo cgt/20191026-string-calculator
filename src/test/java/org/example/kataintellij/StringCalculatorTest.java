@@ -49,8 +49,8 @@ public class StringCalculatorTest {
 
     private int add(String s) {
         if (s.startsWith("//")) {
-            final var delimiter = s.charAt(2);
-            return add(s.substring(4).replaceAll(String.valueOf(delimiter), ","));
+            final var delimiter = String.valueOf(s.charAt(2));
+            return add(s.substring(4).replaceAll(delimiter, ","));
         }
         if (s.equals("")) {
             return 0;
