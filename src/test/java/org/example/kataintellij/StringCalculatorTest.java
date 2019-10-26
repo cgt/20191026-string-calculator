@@ -44,11 +44,13 @@ public class StringCalculatorTest {
     @Test
     public void support_custom_delimiters() {
         assertEquals(3, add("//\n\n1\n2"));
+        assertEquals(3, add("//;\n1;2"));
     }
 
     private int add(String s) {
         if (s.startsWith("//")) {
-            return add(s.substring(4));
+            final var delimiter = s.charAt(2);
+            return add(s.substring(4).replaceAll(String.valueOf(delimiter), ","));
         }
         if (s.equals("")) {
             return 0;
