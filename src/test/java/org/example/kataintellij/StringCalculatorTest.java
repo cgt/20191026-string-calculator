@@ -75,7 +75,11 @@ public class StringCalculatorTest {
                 .reduce(Integer::sum)
                 .orElse(0);
         }
-        return parseInt(s);
+        final var i = parseInt(s);
+        if (i < 0) {
+            throw new RuntimeException();
+        }
+        return i;
     }
 
     private String trimCustomDelimiter(String s) {
