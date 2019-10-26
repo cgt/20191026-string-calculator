@@ -86,10 +86,9 @@ public class StringCalculatorTest {
 
     private int add(String s) {
         if (s.startsWith("//[")) {
-            final var withoutPrefix = s.substring(3);
-            final var endOfDelimiter = withoutPrefix.indexOf("]\n");
-            final var delimiter = withoutPrefix.substring(0, endOfDelimiter);
-            final var s2 = withoutPrefix.substring(endOfDelimiter + 2).replace(delimiter, ",");
+            final var endOfDelimiter = s.indexOf("]\n");
+            final var delimiter = s.substring(3, endOfDelimiter);
+            final var s2 = s.substring(endOfDelimiter + 2).replace(delimiter, ",");
             return add(s2);
         }
         if (s.startsWith("//")) {
