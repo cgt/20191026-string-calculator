@@ -68,7 +68,7 @@ public class StringCalculatorTest {
 
             final var integers = Arrays
                 .stream(split)
-                .map(Integer::parseInt)
+                .map(this::add)
                 .collect(Collectors.toList());
 
             return integers.stream()
