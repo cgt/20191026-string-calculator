@@ -91,7 +91,7 @@ public class StringCalculatorTest {
             .collect(Collectors.toList());
 
         final var negatives = integers.stream().filter((x) -> x < 0).collect(Collectors.toList());
-        if (negatives.size() > 0) {
+        if (!negatives.isEmpty()) {
             var message = "negatives not allowed: " + negatives.stream().map(String::valueOf).collect(Collectors.joining(", "));
             throw new RuntimeException(message);
         }
