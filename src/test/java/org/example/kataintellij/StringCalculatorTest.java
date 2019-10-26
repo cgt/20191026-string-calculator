@@ -126,13 +126,17 @@ public class StringCalculatorTest {
     }
 
     private String getNumbers(String s) {
-        return s.substring(s.indexOf("]\n") + 2);
+        return s.substring(endOfCustomDelimiter(s) + 2);
     }
 
     private String getCustomDelimiter(String s) {
         final var start = 3;
-        final var end = s.indexOf("]\n");
+        final var end = endOfCustomDelimiter(s);
         return s.substring(start, end);
+    }
+
+    private int endOfCustomDelimiter(String s) {
+        return s.indexOf("]\n");
     }
 
     private String trimCustomDelimiter(String s) {
