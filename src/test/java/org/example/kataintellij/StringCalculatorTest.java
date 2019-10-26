@@ -89,9 +89,7 @@ public class StringCalculatorTest {
 
     private int add(String s) {
         if (s.startsWith("//[")) {
-            final var customDelimiter = getCustomDelimiter(s);
-            final var numbers = getNumbers(s);
-            final var numbersWithStandardDelimiter = numbers.replace(customDelimiter, STANDARD_DELIMITER);
+            final var numbersWithStandardDelimiter = getNumbers(s).replace(getCustomDelimiter(s), STANDARD_DELIMITER);
             return add(numbersWithStandardDelimiter);
         }
         if (s.startsWith("//")) {
