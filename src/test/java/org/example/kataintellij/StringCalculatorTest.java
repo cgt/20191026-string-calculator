@@ -7,8 +7,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.lang.Integer.parseInt;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class StringCalculatorTest {
     @Test
@@ -51,9 +50,12 @@ public class StringCalculatorTest {
     }
     @Test
     public void does_not_support_negatives() {
-        assertThrows(Exception.class, () -> {
+        try {
             add("-1");
-        });
+        } catch (Exception e) {
+            assertEquals("negatives not allowed", e.getMessage());
+        }
+
         assertThrows(Exception.class, () -> {
             add("-1,-1");
         });
