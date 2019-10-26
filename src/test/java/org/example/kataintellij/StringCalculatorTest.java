@@ -81,8 +81,8 @@ public class StringCalculatorTest {
         if (s.equals("")) {
             return 0;
         }
-        final var split = s.split("[,\n]");
 
+        final var split = s.split("[,\n]");
         final var integers = Arrays
             .stream(split)
             .map(Integer::parseInt)
