@@ -85,7 +85,7 @@ public class StringCalculatorTest {
     }
 
     private int add(String s) {
-        if (s.equals("//[***]\n1***2***3")) {
+        if (s.startsWith("//[")) {
             final var x = s.substring(3);
             final var end = x.indexOf("]\n");
             final var delimiter = x.substring(0, end);
