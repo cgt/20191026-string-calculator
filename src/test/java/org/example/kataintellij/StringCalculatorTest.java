@@ -54,6 +54,9 @@ public class StringCalculatorTest {
         assertThrows(Exception.class, () -> {
             add("-1");
         });
+        assertThrows(Exception.class, () -> {
+            add("-1,-1");
+        });
     }
     private int add(String s) {
         if (s.startsWith("//")) {
