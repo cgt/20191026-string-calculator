@@ -33,7 +33,6 @@ public class StringCalculatorTest {
         } else if (s.equals("2")) {
             return 2;
         }
-        return 0;
     }
 
 }
