@@ -22,11 +22,6 @@ public class StringCalculatorTest {
         if (s.equals("")) {
             return 0;
         }
-        if (s.equals("1")) {
-            return 1;
-        } else if (s.equals("2")) {
-            return 2;
-        }
         return parseInt(s);
     }
 
