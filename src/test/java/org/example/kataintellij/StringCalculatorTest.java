@@ -31,12 +31,17 @@ public class StringCalculatorTest {
         assertEquals(6, add("1,2,3"));
     }
 
+    @Test
+    public void use_newline_as_separator() {
+        assertEquals(2, add("1\n1"));
+    }
+
     private int add(String s) {
         if (s.equals("")) {
             return 0;
         }
-        if (s.contains(",")) {
-            final var split = s.split(",");
+        if (s.contains(",") || s.contains("\n")) {
+            final var split = s.split("[,\n]");
             return Arrays
                 .stream(split)
                 .map(Integer::parseInt)
