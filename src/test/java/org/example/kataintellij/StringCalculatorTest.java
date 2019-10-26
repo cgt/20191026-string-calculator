@@ -6,8 +6,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 import static java.lang.Integer.parseInt;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class StringCalculatorTest {
     @Test
@@ -55,7 +54,7 @@ public class StringCalculatorTest {
         try {
             add("-1");
         } catch (Exception e) {
-            assertEquals("negatives not allowed", e.getMessage());
+            assertTrue(e.getMessage().startsWith("negatives not allowed"));
         }
 
         assertThrows(Exception.class, () -> {
