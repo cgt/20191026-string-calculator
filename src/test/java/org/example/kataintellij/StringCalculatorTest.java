@@ -66,12 +66,10 @@ public class StringCalculatorTest {
         if (s.contains(",") || s.contains("\n")) {
             final var split = s.split("[,\n]");
 
-            final var integers = Arrays
+            return Arrays
                 .stream(split)
                 .map(this::add)
-                .collect(Collectors.toList());
-
-            return integers.stream()
+                .collect(Collectors.toList()).stream()
                 .reduce(Integer::sum)
                 .orElse(0);
         }
