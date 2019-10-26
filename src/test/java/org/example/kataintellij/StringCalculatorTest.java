@@ -92,7 +92,12 @@ public class StringCalculatorTest {
 
         final var negatives = integers.stream().filter((x) -> x < 0).collect(Collectors.toList());
         if (!negatives.isEmpty()) {
-            var message = "negatives not allowed: " + negatives.stream().map(String::valueOf).collect(Collectors.joining(", "));
+            final var negativeNumbers =
+                negatives
+                    .stream()
+                    .map(String::valueOf)
+                    .collect(Collectors.joining(", "));
+            var message = "negatives not allowed: " + negativeNumbers;
             throw new RuntimeException(message);
         }
         return integers
