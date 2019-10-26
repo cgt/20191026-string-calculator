@@ -88,7 +88,7 @@ public class StringCalculatorTest {
     public static final String STANDARD_DELIMITER = ",";
 
     private int add(String s) {
-        if (s.startsWith("//[")) {
+        if (hasCustomDelimiter(s)) {
             return add(normalizeDelimiter(s));
         }
         if (s.startsWith("//")) {
@@ -120,6 +120,10 @@ public class StringCalculatorTest {
             .filter(i -> i <= 1000)
             .reduce(Integer::sum)
             .orElse(0);
+    }
+
+    private boolean hasCustomDelimiter(String s) {
+        return s.startsWith("//[");
     }
 
     private String normalizeDelimiter(String s) {
