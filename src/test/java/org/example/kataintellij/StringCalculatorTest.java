@@ -47,8 +47,8 @@ public class StringCalculatorTest {
     }
 
     private int add(String s) {
-        if (s.equals("//\n\n1\n2")) {
-            return 3;
+        if (s.startsWith("//")) {
+            s = s.substring(4);
         }
         if (s.equals("")) {
             return 0;
