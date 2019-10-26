@@ -98,11 +98,7 @@ public class StringCalculatorTest {
                 .reduce(Integer::sum)
                 .orElse(0);
         }
-        final var i = parseInt(s);
-        if (i < 0) {
-            throw new RuntimeException("negatives not allowed: " + i);
-        }
-        return i;
+        
     }
 
     private String trimCustomDelimiter(String s) {
