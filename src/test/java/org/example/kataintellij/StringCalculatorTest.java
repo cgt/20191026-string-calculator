@@ -15,8 +15,9 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void given_1_returns_1() {
+    public void given_any_one_single_digit_returns_same_digit() {
         assertEquals(1, add("1"));
+        assertEquals(2, add("2"));
     }
 
     @Test
