@@ -50,7 +50,7 @@ public class StringCalculatorTest {
     private int add(String s) {
         if (s.startsWith("//")) {
             final var delimiter = String.valueOf(s.charAt(2));
-            return add(s.substring(4).replaceAll(delimiter, ","));
+            return add(trimConfig(s).replaceAll(delimiter, ","));
         }
         if (s.equals("")) {
             return 0;
@@ -64,6 +64,10 @@ public class StringCalculatorTest {
                 .orElse(0);
         }
         return parseInt(s);
+    }
+
+    private String trimConfig(String s) {
+        return s.substring(4);
     }
 
 }
