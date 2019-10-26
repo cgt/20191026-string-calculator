@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.lang.Integer.parseInt;
 import static org.junit.jupiter.api.Assertions.*;
@@ -85,9 +86,14 @@ public class StringCalculatorTest {
 
             final var integers = Arrays
                 .stream(split)
-                .map(this::add)
+                .map(Integer::parseInt)
                 .collect(Collectors.toList());
 
+            final var negatives = integers.stream().filter((x) -> x < 0).collect(Collectors.toList());
+            if (negatives.size() > 0) {
+                var message = "negatives not allowed: " + negatives.get(0);
+                throw new RuntimeException(message);
+            }
             return integers.stream()
                 .reduce(Integer::sum)
                 .orElse(0);
